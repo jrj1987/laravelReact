@@ -1,9 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { useEffect } from 'react/cjs/react.production.min'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    fetch('/api/prueba')
+    .then(respuesta => respuesta.json())
+    .then(resultado => console.log(resultado))
+    .catch(error => console.log(error))
+  
+  }, [])
+  
 
   return (
     <>
