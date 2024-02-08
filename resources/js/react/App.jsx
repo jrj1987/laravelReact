@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { useEffect } from 'react/cjs/react.production.min'
 
 function App() {
   const [count, setCount] = useState(0)
