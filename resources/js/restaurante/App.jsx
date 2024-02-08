@@ -6,7 +6,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    fetch('/api/prueba')
+    fetch('api/prueba')
     .then(respuesta => respuesta.json())
     .then(resultado => console.log(resultado))
     .catch(error => console.log(error))
@@ -21,7 +21,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Restaurante</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
