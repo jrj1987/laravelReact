@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\ReservaMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +26,8 @@ Route::get('/restaurante', function () {
 Route::get('/cine', function () {
     return view('cine');
 })->name('cine');
+
+Route::get('/enviarCorreo', function () {
+    $destinatario = 'javier.ruiz@doc.medac.es';
+    Mail::to($destinatario)->send(new ReservaMail());
+});
