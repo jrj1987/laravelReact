@@ -2,6 +2,7 @@
 
 use App\Mail\ReservaMail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,4 +31,18 @@ Route::get('/cine', function () {
 Route::get('/enviarCorreo', function () {
     $destinatario = 'javier.ruiz@doc.medac.es';
     Mail::to($destinatario)->send(new ReservaMail());
+});
+
+Route::get('/redis', function () {
+  
+    $redis = Redis::connection();
+
+    $redis->hset('user:1', 'id', '1');
+    $redis->hset('user:1', 'name', 'Ugarte');
+
+    // Get all values of the hash
+    $values = $redis->hgetall('user:1');
+
+    print_r($values);
+    
 });
