@@ -46,3 +46,7 @@ Route::get('/redis', function () {
     print_r($values);
     
 });
+
+Route::fallback(function () {
+    return view('restaurante');
+});
